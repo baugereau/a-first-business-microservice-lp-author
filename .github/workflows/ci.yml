@@ -62,10 +62,10 @@ jobs:
         resp=$(curl http://localhost:8001/find_rate -X POST -d "007")
         echo "$resp"
         if [[ -n $resp  ]]; then
-          echo -e "Execution Success!"
-        else
           echo -e "Execution Fail!"
           exit 1
+        else
+          echo -e "Execution Success!"
         fi
         kill -9 `cat wasmedge.pid`
         rm wasmedge.pid
